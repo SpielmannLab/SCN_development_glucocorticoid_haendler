@@ -1,0 +1,24 @@
+# Input RDS file containing celltype annotations
+annotated_file_sc_obj:
+- "/data/humangen_singlecell/Astiz_SCN_development/figures/ss_processing/annotated_GD17.rds"
+- "/data/humangen_singlecell/Astiz_SCN_development/figures/ss_processing/annotated_PND02.rds"
+- "/data/humangen_singlecell/Astiz_SCN_development/figures/ss_processing/annotated_PND10.rds"
+- "/data/humangen_singlecell/Astiz_SCN_development/figures/ss_processing/annotated_PND30.rds"
+
+# Parameters for analysis
+# annotations_column: "cell_state" 
+# annotations_column: "cell_state01" 
+# annotations_column: "Annotation" 
+annotations_column: "Celltypes" 
+sex: "both" # male, female or both
+
+# parameters for creating connection
+ks: [5, 8, 10, 15, 20]
+
+# Parameters for sankey plotting
+min_link_strength: 0.2
+
+# File containing additional handy functions
+file_functions: "/data/humangen_mouse/2023_glucocorticoid/code/functions.R"
+
+outfolder: "/data/humangen_mouse/2023_glucocorticoid/output/"
