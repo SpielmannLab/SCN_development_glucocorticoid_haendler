@@ -46,7 +46,6 @@ make_heatmap_per_pathway <- function(sc_gsea_metadata, heatmap_column, heatmap_r
         tibble::column_to_rownames(var = heatmap_row) %>%
         as.matrix() # convert to matrix for pheatmap
 
-    print(medians_all)
     pathway <- pathway %>%
         gsub(pattern = metadata_to_plot, replacement = "")
 
@@ -63,7 +62,7 @@ make_heatmap_per_pathway <- function(sc_gsea_metadata, heatmap_column, heatmap_r
         main = pathway)
 }
 
-pathways <- grep(colnames(sc_gsea_metadata), pattern="ESCAPE_", value = TRUE)
+pathways <- grep(colnames(sc_gsea_metadata), pattern = metadata_to_plot, value = TRUE)
 for (pathway in pathways) {
     make_heatmap_per_pathway(sc_gsea_metadata = sc_gsea_metadata,
         heatmap_column = heatmap_column,
