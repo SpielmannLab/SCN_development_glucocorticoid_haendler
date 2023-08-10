@@ -12,7 +12,8 @@ geneSets:
 # - "H,HALLMARK_MYC" # example to to analyse HALLMARK_MYC_TARGETS_V1 AND HALLMARK_MYC_TARGETS_V2l 
 # - "C5,GOBP_IMMU*"
 - "C5,Glucocorticoid.receptor"
-#- "C5,Mineralocorticoid.stimulus"
+- "C5,Mineralocorticoid.stimulus"
+- "C5,Response.to.Mineralocorticoid"
 #- "C5,GOBP*"
 
 assay: "RNA"
@@ -21,11 +22,17 @@ downsample: 1 # 1 = Do not downsample. <1 will downsample proportionally. >1 wil
 
 species: "Mus musculus" # Tested are: Homo spapiens or Mus musculus
 
+# A single heatmap with all pathways. Single grouping variable
 # The heatmap of the ssGSEA values for all the genesets will be plotted against each of these groupby columns
 groupby:
   - "ClusterID"
 #  - "RNA_snn_res.0.1"
 #  - "goi"
+
+# Individual heatmaps for each pathway, allowing for looking for variation between two variables.
+plot_heatmap_per_pathway: true # Turn this to false, if you have hundreds of pathways. You will get that many files
+heatmap_row: "nickname" # the metadata column name to use as rows of the heatmap
+heatmap_column: "ClusterIDnew" # the metadata column name to use as columns of the heatmap
 
 # Folder where results should be saved. Need not exist
 outfolder: "/data/humangen_mouse/test_area/varun/AstizSCN/ssGSEA_test/"

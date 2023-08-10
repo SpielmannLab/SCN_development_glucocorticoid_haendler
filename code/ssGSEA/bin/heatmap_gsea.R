@@ -50,4 +50,10 @@ medians <- medians_all %>%
     drop_escape_in_names() # cleanup names - see names above
 
 filename = paste0("Heatmap_",gsub(file_sc_gsea_metadata, pattern=".rds", replacement=paste0("_", groupby, ".pdf")))
-pheatmap(medians, cellheight = 20, cellwidth = 20, filename = filename, cluster_rows = FALSE, angle_col = 90)
+
+# Clustering only works if there are multiple columns
+if (NCOL(medians) == 1) {
+    pheatmap(medians, cellheight = 20, cellwidth = 20, filename = filename, cluster_rows = FALSE, angle_col = 90, cluster_cols = FALSE)
+} else {
+    pheatmap(medians, cellheight = 20, cellwidth = 20, filename = filename, cluster_rows = FALSE, angle_col = 90, cluster_cols = TRUE)
+}
