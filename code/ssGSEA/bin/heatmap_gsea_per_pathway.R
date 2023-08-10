@@ -41,8 +41,8 @@ make_heatmap_per_pathway <- function(sc_gsea_metadata, heatmap_column, heatmap_r
     medians_all <- sc_gsea_metadata %>%
         select(all_of(c(heatmap_column, heatmap_row, pathway))) %>%
         group_by(across(all_of(c(heatmap_column, heatmap_row)))) %>%
-        dplyr::summarise(across(starts_with(metadata_to_plot), mean), .groups = "drop") %>%
-        pivot_wider(names_from = heatmap_column, values_from = all_of(pathway)) %>%
+        dplyr::summarise(across(all_of(pathway), median), .groups = "drop") %>%
+        pivot_wider(names_from = all_of(heatmap_column), values_from = all_of(pathway)) %>%
         tibble::column_to_rownames(var = heatmap_row) %>%
         as.matrix() # convert to matrix for pheatmap
 

@@ -34,7 +34,7 @@ sc_gsea_metadata <- readRDS(file_sc_gsea_metadata)
 # get median gsea scores segregated by annotations for each of the Gene sets
 medians_all <- sc_gsea_metadata %>%
     group_by(across(all_of(groupby))) %>%
-    dplyr::summarise(across(starts_with(metadata_to_plot), mean)) %>%
+    dplyr::summarise(across(starts_with(metadata_to_plot), median)) %>%
     tibble::column_to_rownames(var = groupby)
 
 #define a function to drop names
