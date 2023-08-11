@@ -1,0 +1,36 @@
+name: scVelocity
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - anndata
+  - bioconductor-biobase
+  - bioconductor-biocgenerics
+  - bioconductor-pcamethods
+  - hdf5
+  - matplotlib
+  - pip
+  - python=3.10.2
+  - r-anndata=0.7.5.2
+  - r-curl
+  - r-hdf5r
+  - r-jsonlite
+  - r-lattice
+  - r-ggplot2
+  - r-png
+  - r-reticulate
+  - r-velocyto.r
+  - r-ggpubr
+  - scanpy
+  - scikit-learn
+  - scipy
+  - scrublet=0.2.3
+  - scvelo
+  - yaml
+  - pip:
+    - loompy==3.0.6
+    - numpy-groupies==0.9.14
+    - pandas==1.3.5
+    - pysam==0.18.0
+    - velocyto==0.17.17
