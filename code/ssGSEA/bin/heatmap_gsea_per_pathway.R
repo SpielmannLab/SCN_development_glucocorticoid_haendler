@@ -58,6 +58,7 @@ make_heatmap_per_pathway <- function(sc_gsea_metadata, heatmap_column, heatmap_r
         cellwidth = 20,
         filename = filename,
         cluster_rows = FALSE,
+        cluster_cols = FALSE,
         angle_col = 90,
         main = pathway)
 }
