@@ -29,4 +29,6 @@ cp -r ../src $SCRATCH/
 cd $SCRATCH
 
 # Submit the Nextflow Script:
-nextflow run sc_trajectory.nf -params-file sc_trajectory_params.yaml --id ${SCRATCH/"/scratch/"/}
+# nextflow run sc_trajectory.nf -params-file sc_trajectory_params.yaml --id ${SCRATCH/"/scratch/"/}
+# nextflow run sc_trajectory.nf -params-file sc_trajectory_params.yaml --id ${SCRATCH/"/scratch/"/}
+nextflow run sc_trajectory.nf -params-file sc_trajectory_params_picked_astrocytes.yaml --id ${SCRATCH/"/scratch/"/} -resume

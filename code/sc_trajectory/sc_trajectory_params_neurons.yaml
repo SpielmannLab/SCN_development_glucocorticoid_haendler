@@ -1,0 +1,41 @@
+# Provide full path to the "xxx_clustering.rds" file.
+in_seurat_rds: "/data/humangen_singlecell/Astiz_SCN_development/figures/subsets/subset/annotated_annotations_subsetted_noextraSCN_annotations_subsetted_neurons.rds"
+
+# Details about conversion from seurat to monocle object:
+assay: RNA # Which assay or count matrix to use. Some possible options include "RNA", "spliced", "unspliced". Recommended is RNA
+keep_embeddings: false # TRUE/FALSE/true/false. Whether to transfer the embeddings (PCA and UMAP) from Seurat to monocle.
+npcs: 5 # Numeric. If not transferring embeddings, how many PCA componenets to use for creating new embeddings
+
+# Parameters about trajectory analysis
+clustering_k: 10 # Numeric. 10 is a good value. Higher results in fewer clusters
+seperate_trajectory_by_partition: false # logical. Whether trajectories should be disconnected between partitions
+close_loop: false # logical. Whether circular trajectories are allowed
+group_bys: "developmental_timepoint" # comma separated metadata column names to colour cells by in umap/trajectory
+pt_size: 1 # Size of dots in the umap/trajectory
+width: 12 # width of umap/trajectory
+height: 6 # Height of umap/trajectory
+do_de_genenes_in_trajectory: true # Takes a long time. This calculates genes that show patterns of expression in the UMAP. Every found gene will get a MoransI coefficent. 
+
+# Time=0 in pseudotime can be set in two ways. Using root_node value or using metadata_key/val pairs. 
+# Pseudotime will only be run if either of the two is provided
+# root_node are the "Y_" values generated in the trajectory plot
+# The time=0 will be set accordingly
+root_node: Y_48 # For the first run, this is usually unknown. Leave empty e.g. Y_22
+# - OR -
+root_metadata: # This can be provided if desired. For eg., if a particular cell group is known to be a progenitor
+    key: 
+    val: 
+
+# Genes to plot the expression vs psuedotime
+# Note: for this, cells will be coloured based on first group_bys provided
+genes: "Nr3c1,Nr3c2"#Ar,Xist,Tsix,Kdm5d,Ddx3y,Usp9y,Uty,Per1,Per2,Per3,Cry1,Cry2,Rora,Rorb,Nr1d1,Nr1d2,Arntl,Dpb,Npas2,Npas3,Npas4,Bhlhe40,Bhlhe41,Clock,Tsc22d3,Tsc22d4,Tsc22d5,Usp2,Celf4,Syn1,Gad1,Cpne4,Pou4f1,Pbx3,Ebf1,Neurod2,Neurod6,Ghrh,Esr1,Isl1,Prlr,Onecut1,Gabra5,Slc17a6,Robo2,Penk,Avp,Grp,Calr,Vip,Prok2,Cck,Npy,Trh,Sst,Gal,Gfap,Aldh1l1,Agt,Itih3,Tmem212,Pifo,Col23a1,Foxj1,Esco2,Mis18bp1,Hmmr,Top2a,Pdgfra,Cspg4,Olig2,Enpp6,Plp1,Cldn11,Mog,Itm2a,Dcn,Vtn,Cldn5,Hexb,Ly86,Gpr34,Csf1r,Siglech"
+gex_genes_per_file: 4 # How many genes to be plotted per file
+gex_pt_size: 0.5 # Size of points in the gene expression vs pseudotime plot. 0.5 is a good number to start with
+gex_width: 7 # Width of the gene expression vs pseudotime plot
+gex_height: 7 # Height of the gene expression vs pseudotime plot
+
+# Prefix all the names by:
+filename_prefix: # If null, the name of the input filename will be used
+
+# Folder where results should be saved. Need not exist. e.g. /*/*/*/. Needs to end with "/"
+outfolder: "/data/humangen_mouse/test_area/varun/AstizSCN/sc_trajectory/output/neurons/"
