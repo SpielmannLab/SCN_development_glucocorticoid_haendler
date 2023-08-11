@@ -1,0 +1,20 @@
+name: scTrajectory
+channels:
+  - conda-forge
+  - bioconda
+  - r
+  - defaults
+dependencies:
+  - bioconductor-limma=3.50.0=r41hd029910_0
+  - r-monocle3=1.0.0=r41h7d875b9_1
+  - r-seurat=4.0.6=r41h03ef668_0
+  - r-seuratobject=4.0.4=r41h03ef668_0
+  - r-stringi=1.7.6=r41h337692f_1
+  - r-stringr=1.4.0=r41hc72bb7e_2
+  - r-base>4
+  - r-cowplot
+  - r-ggplot2
+  - r-tidyr
+  - r-tidyselect
+  - r-docopt
+  - nextflow>22.10
