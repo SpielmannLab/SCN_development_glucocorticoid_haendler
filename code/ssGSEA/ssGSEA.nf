@@ -19,7 +19,11 @@ workflow {
     heatmap_gsea(gsea.out, params.groupby)
 
     if (params.plot_heatmap_per_pathway) {
-        heatmap_gsea_per_pathway(gsea.out, params.heatmap_column, params.heatmap_row)
+        heatmap_gsea_per_pathway(gsea.out)
+    }
+
+    if (params.plot_vlnplot_per_pathway) {
+        vlnplot_gsea_per_pathway(gsea.out)
     }
 }
 
@@ -92,12 +96,25 @@ process heatmap_gsea_per_pathway {
   publishDir path: "${params.outfolder}heatmap", mode: 'copy', overwrite: true
   input:
     file file_sc_gsea_metadata
-    val heatmap_column
-    val heatmap_row
   output:
     file "*.p??"
   script:
     """
-    heatmap_gsea_per_pathway.R --file_sc_gsea_metadata=${file_sc_gsea_metadata} --metadata_to_plot="ESCAPE_" --heatmap_column=${heatmap_column} --heatmap_row=${heatmap_row}
+    heatmap_gsea_per_pathway.R --file_sc_gsea_metadata=${file_sc_gsea_metadata} --metadata_to_plot="ESCAPE_" --heatmap_column=${params.heatmap_column} --heatmap_row=${params.heatmap_row}
+    """
+}
+
+// GSEA Plots
+// violin plot. 1 plot per pathway
+process vlnplot_gsea_per_pathway {
+  conda "${WORK}/.omics/anaconda3/envs/ggplot_essentials"
+  publishDir path: "${params.outfolder}vlnplot", mode: 'copy', overwrite: true
+  input:
+    file file_sc_gsea_metadata
+  output:
+    file "*.p??"
+  script:
+    """
+    vlnplot_gsea_per_pathway.R --file_sc_gsea_metadata=${file_sc_gsea_metadata} --metadata_to_plot="ESCAPE_" --vln_groupby=${params.vln_groupby} --vln_splitby=${params.vln_splitby} --pt_size=${params.vln_pt_size} --vln_width=${params.vln_width} --vln_height=${params.vln_height} --vln_colors=${params.vln_colors}
     """
 }
