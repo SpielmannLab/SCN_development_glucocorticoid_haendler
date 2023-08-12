@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 "Take a monocle cell data set object, and perform trajectory analysis
 
 Usage: trajectory.R --file_cds_obj=<file> --filename_prefix=<value> --clustering_k=<value> --seperate_trajectory_by_partition=<value> --close_loop=<value> --group_bys=<value> --pt_size=<value> --width=<value> --height=<value>  --do_de_genenes_in_trajectory=<value>
