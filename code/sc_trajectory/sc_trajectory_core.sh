@@ -25,8 +25,10 @@ module load nextflow/v22.04.1
 
 # Move to SCRATCH all the relevant scripts.
 cp * $SCRATCH/
-cp -r ../src $SCRATCH/
+cp -r ../bin $SCRATCH/
 cd $SCRATCH
+
+chmod +x bin/*
 
 # Submit the Nextflow Script:
 # nextflow run sc_trajectory.nf -params-file sc_trajectory_params.yaml --id ${SCRATCH/"/scratch/"/}

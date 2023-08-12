@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 "Make pseudotime figures. Note trajectory.R must be run prior
 
 Usage: pseudotime.R --file_cds_obj=<file> --filename_prefix=<value> --root_node=<value> --root_metadata_key=<value> --root_metadata_val=<value> --group_bys=<value> --pt_size=<value> --width=<value> --height=<value> --genes=<value> --gex_genes_per_file=<value> --gex_pt_size=<value> --gex_width=<value> --gex_height=<value>
@@ -100,6 +101,10 @@ message("root_node to be used: ", root_node)
 # order cells by peudotime
 cds <- order_cells(cds, root_pr_nodes = root_node)
 
+# save the cds object
+filename <- paste0(filename_prefix, "_pseudotime",  ".rds")
+saveRDS(object = cds, file = filename)
+
 # Make plots
 plots1 <- lapply(X = group_bys, FUN = function(group_by) {
     plot_cells(cds,
@@ -165,6 +170,10 @@ for (i in seq_len(length(genes))) {
         nrow = ceiling(sqrt(gex_genes_per_file)),
         ncol = ceiling(sqrt(gex_genes_per_file))) +
         theme(legend.position = "bottom")
+    
+    plot <- plot + 
+        scale_fill_manual(values = c("blue","green","red","black"))
+
     filename <- paste0(filename_prefix, "_gex_in_pseudotime_", i, ".png")
     ggsave(plot=plot, filename=filename, width = gex_width, height = gex_height)
 }

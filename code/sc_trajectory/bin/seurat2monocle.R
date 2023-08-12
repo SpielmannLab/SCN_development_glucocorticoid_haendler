@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 "Covert Seurat object to a monocle object. Choose whether or not to keep the UMAP embeddings. Does the normalization, PCA, and (umap embedding, if asked for). The created monocle file will have the filename with <sc_obj> replaced by <cds>.
 
 Usage: analysis_suerat2monocle.R --file_sc_obj=<file> --assay=<value> --keep_embeddings=<value> --npcs=<value>
