@@ -89,8 +89,6 @@ process pseudotime_in_seurat {
   output:
         path "*.rds"
         path "*.p??"
-        path "*.tsv" optional true
-        path "*.txt" optional true
   """
   pseudotime_in_seurat.R --file_sc_obj=${file_sc_obj} --filename_prefix=${params.filename_prefix} --assay=${params.assay} --file_cds_obj=${file_cds_obj} --genes=${params.genes} --gex_pt_size=${params.gex_pt_size} --gex_width=${params.gex_width} --gex_height=${params.gex_height}
   """
