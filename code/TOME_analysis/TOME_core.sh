@@ -13,8 +13,10 @@ cp -u *.nf $SCRATCH/
 cd $SCRATCH
 chmod +x bin/*
 
+tree
+
 # Use conda environments
-NXF_CONDA_ENABLED=true
+# NXF_CONDA_ENABLED=true
 
 # Submit the Nextflow Script:
-nextflow run TOME.nf -params-file TOME.yaml --id ${SCRATCH/"/scratch/"/}
+nextflow run TOME.nf -params-file TOME.yaml --id ${SCRATCH/"/scratch/"/} -resume
