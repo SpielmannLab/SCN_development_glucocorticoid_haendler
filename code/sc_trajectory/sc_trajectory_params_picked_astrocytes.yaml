@@ -30,7 +30,7 @@ root_metadata: # This can be provided if desired. For eg., if a particular cell 
 # Note: for this, cells will be coloured based on first group_bys provided
 genes: "Nr3c1,Nr3c2"#Ar,Xist,Tsix,Kdm5d,Ddx3y,Usp9y,Uty,Per1,Per2,Per3,Cry1,Cry2,Rora,Rorb,Nr1d1,Nr1d2,Arntl,Dpb,Npas2,Npas3,Npas4,Bhlhe40,Bhlhe41,Clock,Tsc22d3,Tsc22d4,Tsc22d5,Usp2,Celf4,Syn1,Gad1,Cpne4,Pou4f1,Pbx3,Ebf1,Neurod2,Neurod6,Ghrh,Esr1,Isl1,Prlr,Onecut1,Gabra5,Slc17a6,Robo2,Penk,Avp,Grp,Calr,Vip,Prok2,Cck,Npy,Trh,Sst,Gal,Gfap,Aldh1l1,Agt,Itih3,Tmem212,Pifo,Col23a1,Foxj1,Esco2,Mis18bp1,Hmmr,Top2a,Pdgfra,Cspg4,Olig2,Enpp6,Plp1,Cldn11,Mog,Itm2a,Dcn,Vtn,Cldn5,Hexb,Ly86,Gpr34,Csf1r,Siglech"
 gex_genes_per_file: 4 # How many genes to be plotted per file
-gex_pt_size: 0.5 # Size of points in the gene expression vs pseudotime plot. 0.5 is a good number to start with
+gex_pt_size: 2 # Size of points in the gene expression vs pseudotime plot. 0.5 is a good number to start with
 gex_width: 7 # Width of the gene expression vs pseudotime plot
 gex_height: 7 # Height of the gene expression vs pseudotime plot
 
