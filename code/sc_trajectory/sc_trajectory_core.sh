@@ -24,8 +24,9 @@ conda activate scTrajectory
 module load nextflow/v22.04.1
 
 # Move to SCRATCH all the relevant scripts.
-cp * $SCRATCH/
-cp -r ../bin $SCRATCH/
+cp *.nf $SCRATCH/
+cp *.yaml $SCRATCH/
+cp -r bin $SCRATCH/
 cd $SCRATCH
 
 chmod +x bin/*
