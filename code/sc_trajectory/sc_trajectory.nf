@@ -20,7 +20,10 @@ workflow {
         println(params.root_metadata.val)
 
         pseudotime(trajectory.out.cds_obj)
-    } 
+
+        pseudotime_in_seurat(params.in_seurat_rds, 
+            pseudotime.out.cds_obj_with_pseudotime)
+    }
 }
 
 /*--------------PROCESSES----------------*/
@@ -67,11 +70,28 @@ process pseudotime {
   input:
         path file_cds_obj
   output:
-        path ".rds"
+        path "*_pseudotime.rds", emit: cds_obj_with_pseudotime
         path "*.p??"
         path "*.tsv" optional true
         path "*.txt" optional true
   """
   pseudotime.R --file_cds_obj=${file_cds_obj} --filename_prefix=${params.filename_prefix} --root_node=${params.root_node} --root_metadata_key=${params.root_metadata.key} --root_metadata_val=${params.root_metadata.val}  --group_bys=${params.group_bys} --pt_size=${params.pt_size} --width=${params.width} --height=${params.height} --genes=${params.genes} --gex_genes_per_file=${params.gex_genes_per_file} --gex_pt_size=${params.gex_pt_size} --gex_width=${params.gex_width} --gex_height=${params.gex_height}
+  """
+}
+
+// Make trajectory related paths in Seurat as per my taste
+// Note: coloring of the cells ins done 
+process pseudotime_in_seurat {
+  publishDir params.outfolder+"pseudotime_in_seurat", mode: 'copy', overwrite: true
+  input:
+        path file_sc_obj
+        path file_cds_obj
+  output:
+        path "*.rds"
+        path "*.p??"
+        path "*.tsv" optional true
+        path "*.txt" optional true
+  """
+  pseudotime_in_seurat.R --file_sc_obj=${file_sc_obj} --filename_prefix=${params.filename_prefix} --assay=${params.assay} --file_cds_obj=${file_cds_obj} --genes=${params.genes} --gex_pt_size=${params.gex_pt_size} --gex_width=${params.gex_width} --gex_height=${params.gex_height}
   """
 }
