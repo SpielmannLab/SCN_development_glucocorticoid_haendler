@@ -76,7 +76,7 @@ for (gene in genes) {
             group.by = group_by,
             cols = colors,
             plot.cor = FALSE) +
-        geom_smooth(formula = y ~ splines::ns(x, df=3),
+        geom_smooth(formula = y ~ splines::ns(x, df=5),
             se = FALSE,
             color = "black") +
         ylim(0.5, NA) +
