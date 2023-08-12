@@ -35,6 +35,8 @@ filename <- unique(sc_obj$orig.ident) %>%
   tolower()
 saveRDS(sc_obj, file = filename)
 
+quit("no") #No plots needed most times
+
 # Save all the generated plots as a single pdf
 filename <- unique(sc_obj$orig.ident) %>%
   paste0("_dimplot_phylo_heatmap.pdf") %>%
