@@ -55,7 +55,7 @@ gex_height <- as.numeric(arguments$gex_height)
 
 
 if ((filename_prefix %in% c("null", "NULL") || is.null(filename_prefix))) {
-    filename_prefix <- gsub(file_cds_obj, pattern = "*.rds", replacement = "")
+    filename_prefix <- gsub(file_cds_obj, pattern = ".rds", replacement = "")
 }
 
 message("file_cds_obj: ", file_cds_obj)
@@ -102,7 +102,7 @@ message("root_node to be used: ", root_node)
 cds <- order_cells(cds, root_pr_nodes = root_node)
 
 # save the cds object
-filename <- paste0(filename_prefix, "_pseudotime",  ".rds")
+filename <- paste0(filename_prefix, "_pseudotime.rds")
 saveRDS(object = cds, file = filename)
 
 # Make plots
