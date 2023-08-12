@@ -83,6 +83,6 @@ for (gene in genes) {
         theme_classic() +
         theme(aspect.ratio = 0.5)
 
-    filename <- paste0(filename_prefix, "_traj_gex_in_pseudotime_", gene, ".png")
+    filename <- paste0(filename_prefix, "_traj_gex_in_pseudotime_", gene, ".pdf")
     ggsave(plot = plot, filename = filename, width = gex_width, height = gex_height)
 }
