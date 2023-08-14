@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-" Transfer the pseudotime and UMAP co-ordinates into the original Seurat object and plot here.
+" Transfer the pseudotime and UMAP co-ordinates into the original Seurat object and plot pseudotime expression here.
 Usage: pseudotime_in_seurat.R --file_sc_obj=<file> --filename_prefix=<value> --assay=<value> --file_cds_obj=<file> --genes=<value> --gex_pt_size=<value> --gex_width=<value> --gex_height=<value>
 
 Options:
@@ -63,25 +63,30 @@ saveRDS(sc_obj_subset, file = filename)
 
 # Make plot
 group_by <- "developmental_timepoint"
-colors <- c("#a1dab4","#41b6c4","#2c7fb8","#253494")
+colors_timepoints <- c("zero-expression", "GD17.5", "PND02", "PND10", "PND30")
+colors <- c("lightgrey", "#a1dab4","#41b6c4","#2c7fb8","#253494")
 
 
 for (gene in genes) {
-    plot <- FeatureScatter(sc_obj_subset,
-            feature1 = "pseudotime",
-            feature2 = gene,
-            slot = "data",
-            pt.size = gex_pt_size,
-            jitter = FALSE,
-            group.by = group_by,
-            cols = colors,
-            plot.cor = FALSE) +
-        geom_smooth(formula = y ~ splines::ns(x, df=5),
+    df_to_plot <- data.frame(expression = as.vector(FetchData(sc_obj_subset, vars = gene, slot = "data")),
+            pseudotime = sc_obj_subset$pseudotime,
+            group_by = sc_obj_subset$developmental_timepoint)
+    colnames(df_to_plot)[1] <- "expression"
+
+    df_to_plot$color_by <- df_to_plot$group_by
+    df_to_plot$color_by[df_to_plot$expression == 0] <- "zero-expression"
+
+    plot <- ggplot(df_to_plot, aes(x = pseudotime, y = expression, color = color_by)) +
+            geom_point(size = gex_pt_size,
+            shape = 16) +
+        scale_color_manual(values = colors,
+            breaks = colors_timepoints) +
+        geom_smooth(formula = y ~ splines::ns(x, df=2),
             se = FALSE,
             color = "black") +
-        ylim(0.5, NA) +
+        ylim(0, NA) +
         theme_classic() +
-        theme(aspect.ratio = 0.5)
+        theme(aspect.ratio = 0.5) 
 
     filename <- paste0(filename_prefix, "_traj_gex_in_pseudotime_", gene, ".pdf")
     ggsave(plot = plot, filename = filename, width = gex_width, height = gex_height)
