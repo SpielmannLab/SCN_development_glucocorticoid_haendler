@@ -49,9 +49,9 @@ process preprocess {
         path "pnd2_processed.rds", optional: true, emit: pnd2
         path "pnd10_processed.rds", optional: true, emit: pnd10
         path "pnd30_processed.rds", optional: true, emit: pnd30
-        file "*.pdf"
-        file "*.tsv"
-        file "output.log"
+        path "*.pdf", optional: true
+        path "*.tsv", optional: true
+        path "output.log"
     """
     ls -lh *
     which Rscript
@@ -104,6 +104,7 @@ process combined_sankeyplot {
         each k // do this individually for each k
     output:
         path "*.html"
+        path "*.pdf"
     """
     tree # Check if all the files have been added by Nextflow
     combined_sankeyplot.R $k ${params.min_link_strength}
