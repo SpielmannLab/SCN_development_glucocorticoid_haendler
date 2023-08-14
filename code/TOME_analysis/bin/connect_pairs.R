@@ -17,7 +17,7 @@ library(ggplot2)
 library(Matrix)
 library(htmlwidgets)
 library(plotly)
-library(monocle3)
+# library(monocle3)
 library(FNN)
 source("functions.R")
 
