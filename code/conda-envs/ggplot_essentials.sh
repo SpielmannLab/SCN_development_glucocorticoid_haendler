@@ -1,1 +1,0 @@
-mamba create --name ggplot_essentials r-docopt r-ggplot2 r-tidyr r-tidyverse r-rstatix r-ggrepel r-ggpubr r-ggrastr r-cowplot
