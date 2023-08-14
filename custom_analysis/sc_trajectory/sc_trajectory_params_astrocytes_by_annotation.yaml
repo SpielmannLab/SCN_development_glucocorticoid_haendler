@@ -38,4 +38,4 @@ gex_height: 7 # Height of the gene expression vs pseudotime plot
 filename_prefix: # If null, the name of the input filename will be used
 
 # Folder where results should be saved. Need not exist. e.g. /*/*/*/. Needs to end with "/"
-outfolder: "/data/humangen_mouse/test_area/varun/AstizSCN/sc_trajectory/output/astro_with_ependymocytes/"
+outfolder: "/data/humangen_mouse/test_area/varun/AstizSCN/sc_trajectory/output/astrocytes_by_annotation/"
