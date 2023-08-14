@@ -20,11 +20,11 @@ do_de_genenes_in_trajectory: true # Takes a long time. This calculates genes tha
 # Pseudotime will only be run if either of the two is provided
 # root_node are the "Y_" values generated in the trajectory plot
 # The time=0 will be set accordingly
-root_node: Y_1 # For the first run, this is usually unknown. Leave empty e.g. Y_22
+root_node: NULL # For the first run, this is usually unknown. Leave empty e.g. Y_22
 # - OR -
 root_metadata: # This can be provided if desired. For eg., if a particular cell group is known to be a progenitor
-    key: 
-    val: 
+    key: developmental_timepoint
+    val: GD17.5
 
 # Genes to plot the expression vs psuedotime
 # Note: for this, cells will be coloured based on first group_bys provided
