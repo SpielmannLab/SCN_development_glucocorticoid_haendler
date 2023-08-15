@@ -1,3 +1,5 @@
+# This script was used on a local computer with GUI. It was used to remove the ependymocytes branch (bottom left) manually. It was done using the function "choose_graph_segments".
+
 suppressMessages(library(Seurat))
 suppressPackageStartupMessages(library(monocle3))
 suppressMessages(library(dplyr))
@@ -21,7 +23,8 @@ sc_obj <- readRDS(file_sc_obj)
 DefaultAssay(sc_obj) <- assay
 
 cds <- readRDS(file_cds)
-cds_sub <- choose_graph_segments(cds)
+cds_sub <- choose_graph_segments(cds) # Choose starting node based on the automated start node in the cds obj. Then choose all the 4 astrocytes branch points as end nodes. 
+
 cds <- cds_sub
 
 
