@@ -24,4 +24,6 @@ Note, for the conda environment scVelocity, after creation of the conda environm
 
 ## Demo file
 
-Downsampled version of the four Seurat objects that are outputs of the [count_to_seurat](pre_processing/count_to_seurat) pipeline is provided in the [demo_files](demo_files/) directory. These can be used as inputs to the scripts in the [analysis_pipeline](analysis_pipeline).
+Files included are:
+1. Downsampled version of the two Seurat objects corresponding to two time points in our dataset that can be used as inputs to the scripts in the [analysis_pipeline](analysis_pipeline)
+2. Downsampled version of the Morris et. al. dataset that contains our annotations. This can be used as input for ssGSEA [ssGSEA](analysis_pipeline/ssGSEA) and for [ligand-receptor](analysis_pipeline/cell_cell_signalling) analyses.
