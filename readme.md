@@ -1,6 +1,6 @@
 # Readme
 
-These scripts were used to pre-process the raw seqencing data, and analyse the resultant count matrix, as well as to prepare figures in the manuscript: [Development of the central circadian clock sensitivity to glucocorticoids](bioRxiv link)
+These scripts were used to pre-process the raw seqencing data, and analyse the resultant count matrix, as well as to prepare figures in the manuscript: [Astrocytes in the mouse suprachiasmatic nuclei respond directly to glucocorticoids feedback](bioRxiv link)
 
 ## Main steps
 
