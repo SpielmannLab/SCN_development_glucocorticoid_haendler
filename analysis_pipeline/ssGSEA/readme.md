@@ -21,7 +21,7 @@
 
             # ssh into the omics cluster
             srun --partition=debug --mem=50GB -c 1 --pty bash
-            conda env create --file ssGSEA/prebuilt_conda_envs/ssGSEA.yml 
+            conda env create --file installation/ssGSEA.yml 
             
             # Install additional packages
             conda activate ssGSEA
@@ -30,8 +30,4 @@
             install.packages("docopt")
             install.packages("pheatmap")
 
-- Statistics and Violin plots in sGSEA requires another conda environment, called "ggplot_essentials". This is an easy one. Install using:
-    
-        # ssh into the omics cluster
-        srun --partition=debug --mem=50GB -c 1 --pty bash 
-        conda create --name ggplot_essentials r-docopt r-ggplot2 r-tidyr "r-tidyverse>=2.0" r-rstatix r-ggrepel r-ggpubr conda-forge::r-ggrastr r-cowplot
+- Statistics and Violin plots in sGSEA requires another conda environment, called "ggplot_essentials"
