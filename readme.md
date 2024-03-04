@@ -20,10 +20,10 @@ Most of these scripts were written to work in a HPC running Debian GNU/Linux 11 
 
 All the packages were installed within conda environments. Instructions/commands to generate these conda environments are located in installation/\*.yaml
 
-Note, for the conda environment scVelocity, after creation of the conda environment using [scVelocity.yml](installation/scVelocity.yml), it is necessary to run the [install_packages.R](installation/install_packages_in_scVelocity.R) from within the scVelocity conda environment to install additional R-packages.
-
 ## Demo file
 
 Files included are:
+
 1. Downsampled version of the two Seurat objects corresponding to two time points in our dataset that can be used as inputs to the scripts in the [analysis_pipeline](analysis_pipeline)
+
 2. Downsampled version of the Morris et. al. dataset that contains our annotations. This can be used as input for ssGSEA [ssGSEA](analysis_pipeline/ssGSEA) and for [ligand-receptor](analysis_pipeline/cell_cell_signalling) analyses.

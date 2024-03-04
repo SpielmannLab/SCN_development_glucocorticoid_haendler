@@ -1,0 +1,15 @@
+name: ggplot_essentials
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - r-docopt
+  - r-ggplot2
+  - r-tidyr
+  - r-tidyverse
+  - r-rstatix
+  - r-ggrepel
+  - r-ggpubr
+  - r-ggrastr
+  - r-cowplot
