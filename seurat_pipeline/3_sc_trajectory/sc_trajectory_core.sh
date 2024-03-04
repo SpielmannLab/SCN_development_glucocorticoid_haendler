@@ -34,4 +34,4 @@ chmod +x bin/*
 # Submit the Nextflow Script:
 nextflow run sc_trajectory.nf -params-file sc_trajectory_params_neurons.yaml --id ${SCRATCH/"/scratch/"/} -resume
 nextflow run sc_trajectory.nf -params-file sc_trajectory_params_astrocytes_by_annotation.yaml --id ${SCRATCH/"/scratch/"/} -resume
-nextflow run sc_trajectory.nf -params-file sc_trajectory_params_picked_astrocytes.yaml --id ${SCRATCH/"/scratch/"/} -resume
+# nextflow run sc_trajectory.nf -params-file sc_trajectory_params_picked_astrocytes.yaml --id ${SCRATCH/"/scratch/"/} -resume
