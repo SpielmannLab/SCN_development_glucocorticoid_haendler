@@ -1,6 +1,6 @@
-# Preprocessing - readme
+# pre_processing - readme
 
-The preprocessing is comprised of the following two steps:
+The pre_processing is comprised of the following two steps:
 
 ## Creating BAM file and counting gene expression using Cellranger
 

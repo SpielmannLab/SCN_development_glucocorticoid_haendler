@@ -8,7 +8,7 @@ Here is a summary of all the analysis steps.
 
 The scripts for each step are contained within the respective directories along with an associated readme file, which contain individual installation and usage requirements, whenever necesary. Down below are some global installation instructions and system requirements.
 
-1. [Preprocessing](preprocessing)
+1. [pre_processing](pre_processing)
    10X Cellranger-based scripts for obtaining single-cell gene-level count matrixes from fastq files.
 
 2. [analysis_pipeline](analysis_pipeline)
@@ -27,4 +27,4 @@ Note, for the conda environment scVelocity, after creation of the conda environm
 
 ## Demo file
 
-Downsampled version of the four Seurat objects that are outputs of the [count_to_seurat](preprocessing/count_to_seurat) pipeline is provided in the [demo_files](demo_files/) directory. These can be used as inputs to the scripts in the [analysis_pipeline]](analysis_pipeline).
+Downsampled version of the four Seurat objects that are outputs of the [count_to_seurat](pre_processing/count_to_seurat) pipeline is provided in the [demo_files](demo_files/) directory. These can be used as inputs to the scripts in the [analysis_pipeline](analysis_pipeline).
