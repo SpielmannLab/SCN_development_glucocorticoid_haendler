@@ -12,7 +12,7 @@ The scripts for each step are contained within the respective directories along 
    10X Cellranger-based scripts for obtaining single-cell gene-level count matrixes from fastq files.
 
 2. [analysis_pipeline](analysis_pipeline)
-   Contains generic NextFlow-based pipeline for basic sn-RNAseq data analysis that includes QC reporting, QC filtering including doublet detection, clustering, and marker-gene identification, merging/integration of multiple samples, trajectory analysis, ssGSEA analysis, and ligand-receptor analysis. These are implemented using Seurat (v4) and monocle3, escape (v1.8.0),  in addition to other R-packages.
+   Contains generic NextFlow-based pipeline for basic sn-RNAseq data analysis that includes QC reporting, QC filtering including doublet detection, clustering, and marker-gene identification, merging/integration of multiple samples, trajectory analysis, ssGSEA analysis, and ligand-receptor analysis. These are implemented using Seurat (v4) and monocle3, escape (v1.8.0), in addition to other R-packages.
 
 3. [custom_analysis](custom_analysis)
    Contains scripts developed to perform custom analysis and custom figures in this manuscript.
