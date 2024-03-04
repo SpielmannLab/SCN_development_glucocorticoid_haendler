@@ -1,2 +1,2 @@
-set1:Gene1,Gene2,Gene3,Gene4,Gene5,Gene6,Gene7,Gene8,Gene9,Gene10,Gene11
+GOBP_CELLULAR_RESPONSE_TO_GLUCOCORTICOID_STIMULUS:E430018J23Rik,Agtr1a,Agtr1b,Agtr2,Aqp1,Bmp4,Zfp36l1,Zfp36l2,Casp9,Eif4e,Eif4ebp1,Gdnf,Nr3c1,Ifnb1,Il17a,Jak2,Klf9,Anxa1,Mstn,mt-Nd3,Myod1,Pck1,Rest,Sgk1,Sstr2,Sstr4,Sstr5,Tgfb1,Ube2l3,Npas4,Zfp36,Zfp764,Fam107a,Zfp747,Mir21a,Mir155,Ugt1a6b,Mettl21c,Trim63,Hnrnpu,Gsk3b,Gsk3a,Fbxo32,Smyd3,Rps6kb1,Pck2,Ddit4,Akap13,Crebrf,9130019O22Rik,Tfap4,Ugt1a6a
 set2:Gene12,Gene13,Gene14,Gene15,Gene16,Gene17,Gene18,Gene19,Gene20,Gene21,Gene22,Gene23,Gene24,Gene25,Gene26
