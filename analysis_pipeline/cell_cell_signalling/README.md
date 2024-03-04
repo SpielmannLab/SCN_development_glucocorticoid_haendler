@@ -7,7 +7,7 @@ The workflow allows two specific cell-cell-signalling tools to be run
 
 ## Installation requirements
 
-This workflow is self contained. However it requires that you have mamba installed. This is a faster implementation of conda. If you do not have it set up, you can use just do `conda install mamba` from your base conda environment.
+Requires two conda environments: NICHES and liana_dev 
 
 ## Important considerations
 
