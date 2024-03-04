@@ -14,9 +14,9 @@ group_bys: "orig.ident" # comma separated metadata column names to colour cells 
 pt_size: 1 # Size of dots in the umap/trajectory
 width: 10 # width of umap/trajectory
 height: 10 # Height of umap/trajectory
-do_de_genenes_in_trajectory: false # Takes a long time. This calculates genes that show patterns of expression in the UMAP. Every found gene will get a MoransI coefficent. 
+do_de_genenes_in_trajectory: false # Takes a long time. This calculates genes that show patterns of expression in the UMAP. Every found gene will get a MoransI coefficent.
 
-# Time=0 in pseudotime can be set in two ways. Using root_node value or using metadata_key/val pairs. 
+# Time=0 in pseudotime can be set in two ways. Using root_node value or using metadata_key/val pairs.
 # Pseudotime will only be run if either of the two is provided
 # root_node are the "Y_" values generated in the trajectory plot
 # The time=0 will be set accordingly

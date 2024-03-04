@@ -8,25 +8,24 @@
 #  Use so many node:
 #SBATCH --nodes=1
 #  Request so many cores (hard constraint):
-#SBATCH -c 1
+#SBATCH -c 4
 #  Request so much of memory (hard constraint):
 #SBATCH --mem=200GB
-#  Find your job easier with a name:
-#SBATCH --job-name=sc_trajectory
-# set slurm file output nomenclature
+#set slurm file output nomenclature
 #SBATCH --output "slurm-%x-%j.out"
 
 PATH=$WORK/.omics/anaconda3/bin:$PATH #add the anaconda installation path to the bash path
 source $WORK/.omics/anaconda3/etc/profile.d/conda.sh # some reason conda commands are not added by default
 
 # Load your necessary modules:
-conda activate scTrajectory
+conda activate scVelocity
 module load nextflow/v22.04.1
 
-# Move to SCRATCH all the relevant scripts.
+# Move to SCRATCH were everything will be done
 cp * $SCRATCH/
-cp -r ../src $SCRATCH/
 cd $SCRATCH
 
+tree
+
 # Submit the Nextflow Script:
-nextflow run sc_trajectory.nf -params-file sc_trajectory_params.yaml --id ${SCRATCH/"/scratch/"/}
+nextflow run count_to_seurat.nf -params-file count_to_seurat_params.yaml --id ${SCRATCH/"/scratch/"/}
