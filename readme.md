@@ -23,7 +23,7 @@ Most of these scripts were written to work in a HPC running Debian GNU/Linux 11 
 
 All the packages were installed within conda environments. Instructions/commands to generate these conda environments are located in installation/\*.yaml
 
-Note, for the conda environment scVelocity, after creation of the conda environment using [scVelocity.yml](installation/scVelocity.yml), it is necessary to run the [install_packages.R](instllation/install_packages.R) from within the scVelocity conda environment to install additional R-packages.
+Note, for the conda environment scVelocity, after creation of the conda environment using [scVelocity.yml](installation/scVelocity.yml), it is necessary to run the [install_packages.R](installation/install_packages_in_scVelocity.R) from within the scVelocity conda environment to install additional R-packages.
 
 ## Demo file
 

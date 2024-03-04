@@ -1,0 +1,13 @@
+name: NICHES
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - r-base
+  - r-devtools
+  - r-seurat
+  - r-tzdb
+  - r-readr
+  - r-docopt
+  - r-seuratdisk

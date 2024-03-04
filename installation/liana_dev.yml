@@ -1,0 +1,22 @@
+name: liana
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.8
+  - pip
+  - scanpy
+  - yaml
+  - pip:
+      - loompy
+      - numpy
+      - pandas
+      - pysam
+      - "git+https://github.com/saezlab/liana-py"
+      - ipython
+      - "decoupler>=0.1.4"
+      - "pydeseq2>=0.4.0"
+      - omnipath # to download pathways using decoupler
+      - pypath-omnipath # to download mouse-orthologs using decoupler
+    # Error in pypath. Works fine if I delete the the last line of init.py: info(0)

@@ -1,0 +1,75 @@
+# Path to the RDS files containg the Seurat objects. Usually, after sc_p_sample or sc_multi_sample pipelines.
+in_seurat_rds:
+  - name: morris_scn
+    file: /Users/sreenivasan/Desktop/cell_signalling_datasets/Morrisannotated.rds
+# Folder where results should be saved. Need not exist
+outfolder: /Users/sreenivasan/Documents/Works/AstizSCN/cell_cell_signalling_analysis/cell_signalling_output/morris_equal_cells/
+#/data/humangen_mouse/test_area/varun/morris_random_grouping
+
+# ------------------------------------------------
+# ------------------ GLOBAL Parameters ----------------------
+# ------------------------------------------------
+assay: RNA
+# The following parameter is used differently depending on which workflow is run
+# For run_NICHES:
+#   1. Runs NICHES seperately on the individual Seurat objects to get two cell-signalling objects
+#   2. Then combines the two cell-signalling objects to perform differential signalling analysis
+#   3. Must have exactly two entries in the "separate_rds_values"
+# For run_LIANA:
+#   1. The seurat object will separated based on these parameters.
+#   2. LIANA will be done on these objects separately
+#   3. Can have >1 entires in the "separate_rds_values"
+# For run_diff_liana:
+#   1. Differential LIANA will be carried out across these two conditions
+#   2. Must have exactly two entries in the "separate_rds_values". The first will be used as reference
+separate_rds_key: batch #random_grouping
+separate_rds_values:
+  - CT7.5 # (used as reference in diff_liana)#
+  - CT15.5
+cell_types_column: ClusterIDnew # Name of the metadata column in the seurat object containing cluster numbers or names which will be used for pairwise cell-signalling analysis
+# ------------------------------------------------
+# ------------------ NICHES ----------------------
+# ------------------------------------------------
+run_NICHES: false
+species: mouse #  Only required when LR.database = 'fantom5' ('human','mouse','rat', or 'pig') or LR.database = 'omnipath' ('human','mouse', or 'rat').
+# For differential signalling analysis, it makes sense to make sure the number of cells are same across conditions
+do_downsample: true
+# downsample: 7800 # This is the number of cells in the condition CT7.5 without downsampling
+downsample: 6400 # This is the number of cells in the condition CT7.5 after downsampling
+# Include only neurons and astrocytes for cell-signalling analysis
+subset: false
+key_value_pairs:
+  subset_key: "ClusterIDnew" # Metadata column name as key for subsetting. Leave empty if want to get a metadata table tsv
+  subset_values: "01 SCN neurons,02 Extra-SCN neurons,03 Astrocytes" #Values in the metadata column to subset (separate by , for multiple)
+# Choose whether or not to impute drop-out events
+use_ALRA: true # Check this really nice paper and cite if you use this tool: https://www.biorxiv.org/content/10.1101/397588v1.full
+LRdatabase: omnipath # Which database to use. Either "omnipath", "fantom5", or (currently not implemented, but easily possible) a path to a TSV file with your on database.
+min_cells_p_gene: 50 # Min num of cells in which a gene has to be expressed to qualify for analysis
+min_cells_p_cluster: 50 # Min number of cells in a cluster for the cluster to be considered
+mode_of_analysis: # List all modes of analysis to be performed. Options are <CellToCell, CellToSystem, SystemToCell>
+  - CellToCell
+  #  - CellToSystem
+  #  - SystemToCell
+min_feat_cell2cell: 10 # The number of ligand-receptor pairs that each cell2cell pair needs to have to keep them. Else, they will be thrown out before UMAP and Diff Signalling the combined analysis
+signalling_npcs: 6 # Number of PCs in the signaling feature space for UMAP embedding. Look at the elbowplot to decide for the next round
+# ------------------------------------------------
+# ------------------ LIANA ----------------------
+# ------------------------------------------------
+run_liana: false
+liana_resource_name: mouseconsensus # Other options are: ['baccin2019', 'cellcall', 'cellchatdb', 'cellinker', 'cellphonedb', 'celltalkdb', 'connectomedb2020', 'consensus', 'embrace', 'guide2pharma', 'hpmr', 'icellnet', 'italk', 'kirouac2010', 'lrdb', 'mouseconsensus', 'ramilowski2015']
+source_celltypes_to_plot: "01 SCN neurons,02 Extra-SCN neurons,03 Astrocytes" # Leave empty to plot all celltypes, else provide comma separated values from the cell_types_column denoted above
+target_celltypes_to_plot: "01 SCN neurons,02 Extra-SCN neurons,03 Astrocytes" # Leave empty to plot all celltypes, else provide comma separated values from the cell_types_column denoted abovemethodsToRun:
+methodsToRun: "NATMI,CellPhoneDB,log2FC,Connectome,SingleCellSignalR,CellChat,Geometric Mean,Rank_Aggregate" # Comma separated names. Possible options are: "NATMI,CellPhoneDB,log2FC,Connectome,SingleCellSignalR,CellChat,Geometric Mean,Rank_Aggregate"
+de_method: t-test # Choose from t-test_overestim_var, wilcoxon, logreg, t-test (Default)
+liana_figure_width: 12
+liana_figure_height: 16
+# ------------------------------------------------
+# ------------------ diff_LIANA ----------------------
+# ------------------------------------------------
+# Currently the LRs are identified based on differentially expressed Genes (between the two conditions) using pseudobulk DESeq2.
+# In future, we could implement this instead based on single-cell DE genes
+run_diff_liana: true
+sample_column: "orig.ident" # This is the column that contains unique sample identifiers. Important for DEseq2, as each sample will be considered as a replicate within the conditions
+diff_liana_resource_name: mouseconsensus # Other options are: ['baccin2019', 'cellcall', 'cellchatdb', 'cellinker', 'cellphonedb', 'celltalkdb', 'connectomedb2020', 'consensus', 'embrace', 'guide2pharma', 'hpmr', 'icellnet', 'italk', 'kirouac2010', 'lrdb', 'mouseconsensus', 'ramilowski2015']
+diff_liana_figure_width: 12
+diff_liana_figure_height: 12
