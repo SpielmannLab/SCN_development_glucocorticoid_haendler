@@ -1,6 +1,6 @@
 # installation - readme
 
-All the files with *.yml extensions contains conda environment recipes. The can be installed using [mamba](https://github.com/conda-forge/miniforge) or conda using the following command (example):
+All the files with *.yml extensions contain conda environment recipes. These environments can be installed using [mamba](https://github.com/conda-forge/miniforge) or conda using the following command (example):
 
     mamba env create -f liana_dev.yml
 
