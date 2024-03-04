@@ -44,7 +44,6 @@ Requires two conda environments: NICHES and liana_dev
 
    - A dot plot of LR magnitude, specificity and expression: This plot shows the the magnitude and specificity of LR interactions between different cell types. In most algorithms, the magnitude is used to color the dots (see scale bar - higher the number higher the interaction), and the size of thd dot represents the specificity (bigger the dot, more specific is this interaction between those two cell types - note: -log10 has been applied to p-values). Some exceptions include the "CustomRankAggregate" and "SingleCellSignalR" methods, which do not provide any specificity values and the "log2FC" method, which does not provide any magnitude values.
    - Scores for downstream analysis
-   -
 
 3. Differential LIANA (diff_liana)
    This workflow, which analysis the differentially regulated ligand-receptor pairs generates the following outputs. This workflow is not optimised yet. But the idea is that only those LR pairs are plotted here, for which the Ligand, the Receptor-related genes, and the LR-combined are significantly different between the two conditions.
