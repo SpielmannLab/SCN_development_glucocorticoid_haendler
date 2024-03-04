@@ -1,16 +1,8 @@
-inputfolder:
-  - "/data/SCN/counts/GD17-1"
-  - "/data/SCN/counts/PND02-1"
-  - "/data/SCN/counts/PND10-1"
-  - "/data/SCN/counts/PND10-2"
-  - "/data/SCN/counts/PND30-1"
-  - "/data/SCN/counts/PND30-2"
-# Provide names for samples as list. Cannot have "_" or Spaces.
-samplename:
-  - "GD17"
-  - "PND02"
-  - "PND10"
-  - "PND30"
+# Path to the RDS files containg the Seurat objects. Usually, created using the count_to_seurat pipeline in scPreprocess repo.
+in_seurat_rds:
+  - demo_files/GD17.rds
+  - demo_files/PND2.rds
+
 # Set the number of computing cores. Hardwired to 4. Do not change if you didn't change the internal script
 ncores: 4
 # Parameters for the pipeline
