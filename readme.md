@@ -14,9 +14,6 @@ The scripts for each step are contained within the respective directories along 
 2. [analysis_pipeline](analysis_pipeline)
    Contains generic NextFlow-based pipeline for basic sn-RNAseq data analysis that includes QC reporting, QC filtering including doublet detection, clustering, and marker-gene identification, merging/integration of multiple samples, trajectory analysis, ssGSEA analysis, and ligand-receptor analysis. These are implemented using Seurat (v4) and monocle3, escape (v1.8.0), in addition to other R-packages.
 
-3. [custom_analysis](custom_analysis)
-   Contains scripts developed to perform custom analysis and custom figures in this manuscript.
-
 ## Installation instructions
 
 Most of these scripts were written to work in a HPC running Debian GNU/Linux 11 (bullseye). Most scripts are wrapped within an additional [Slurm](https://slurm.schedmd.com) job-submission script (sbatch), which can be bypassed if running on a local machine. Moreover, all the paths needs to be adjusted as required.
