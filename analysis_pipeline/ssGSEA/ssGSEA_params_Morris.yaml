@@ -1,7 +1,6 @@
 # Path to the RDS files containg the Seurat objects. Usually, after sc_p_sample or sc_multi_sample pipelines.
 in_seurat_rds:
   - "/data/humangen_singlecell/Astiz_SCN_development/Morris_fastq_data/ms_harmony/Morrisannotated.rds"
-  - "/data/humangen_singlecell/Astiz_SCN_development/figures/subset/annotated_delete_subsetted_astroneuroonly.rds"
 # Parameters for ssGSEA score calculation. A score will be given to every cell for every geneSet specicied
 # Genesets can be either a full path to a text file with custom gene sets, or genesets from msigdb.
 #### For a custom file, see the attached example genesets.txt file for the format
@@ -14,7 +13,7 @@ geneSets:
   # - "C2,WP.Glucocorticoid"
   # - "C5,Mineralocorticoid.stimulus"
   # - "C5,Response.to.Mineralocorticoid"
-  - "custom,/data/humangen_mouse/test_area/varun/example_geneset.txt"
+  # - "custom,/data/humangen_mouse/test_area/varun/example_geneset.txt"
   # - "C5,cellular.response.to.Glucocorticoid"  # This does not exist in msigdbr.
 assay: "RNA"
 downsample: 1  # 1 = Do not downsample. <1 will downsample proportionally. >1 will downsample to that number of cells
@@ -25,15 +24,15 @@ species: "Mus musculus"  # Tested are: Homo spapiens or Mus musculus
 # The heatmap of the ssGSEA values for all the genesets will be plotted against each of these groupby columns
 groupby:
   - "ClusterID"
-  - "astro_neuro_only_plus_cond"
+#  - "astro_neuro_only_plus_cond"
 #  - "RNA_snn_res.0.1"
 #  - "goi"
 
 ### Statistics
 do_statistics: true  # Do this for a TSV file of statistics
-statistics_groupby: batch, developmental_timepoint  # which metadata column for stat testing.
+statistics_groupby: batch  # which metadata column for stat testing.
 statistics_groups_to_compare:  # OPTIONAL. comma separated of the format <group1_vs_group2,group4_vs_group3,...>
-statistics_splitby: ClusterIDnew,astro_neuro_only # OPTIONAL. Which metadata column to use for separating the datasets
+statistics_splitby: ClusterIDnew # OPTIONAL. Which metadata column to use for separating the datasets
 statistics_multiple_comparisons_adjustment_method: "bonferroni"  # "holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none"
 #### Volcano based on statistics. See above.
 do_volcano: true  # This will only be run if statistics is done
@@ -46,8 +45,8 @@ volcano_pt_size: 2
 
 # Individual heatmaps for each pathway, allowing for looking for variation between two variables.
 plot_heatmap_per_pathway: true  # Turn this to false, if you have hundreds of pathways. You will get that many files
-heatmap_row: "batch,developmental_timepoint"  # the metadata column name to use as rows of the heatmap
-heatmap_column: "ClusterIDnew,astro_neuro_only"  # the metadata column name to use as columns of the heatmap
+heatmap_row: "batch"  # the metadata column name to use as rows of the heatmap
+heatmap_column: "ClusterIDnew"  # the metadata column name to use as columns of the heatmap
 # Individual violinplots for each pathway with statistical tests
 # Note all those groupbys without multiple splitby values will be removed
 # Note all those groupbys-splitby combinations with fewer than 2 datapoints will be removed
