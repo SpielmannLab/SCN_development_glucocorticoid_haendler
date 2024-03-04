@@ -24,9 +24,14 @@ conda activate scTrajectory
 module load nextflow/v22.04.1
 
 # Move to SCRATCH all the relevant scripts.
-cp * $SCRATCH/
-cp -r ../src $SCRATCH/
+cp *.nf $SCRATCH/
+cp *.yaml $SCRATCH/
+cp -r bin $SCRATCH/
 cd $SCRATCH
 
+chmod +x bin/*
+
 # Submit the Nextflow Script:
-nextflow run sc_trajectory.nf -params-file sc_trajectory_params.yaml --id ${SCRATCH/"/scratch/"/}
+nextflow run sc_trajectory.nf -params-file sc_trajectory_params_neurons.yaml --id ${SCRATCH/"/scratch/"/} -resume
+nextflow run sc_trajectory.nf -params-file sc_trajectory_params_astrocytes_by_annotation.yaml --id ${SCRATCH/"/scratch/"/} -resume
+nextflow run sc_trajectory.nf -params-file sc_trajectory_params_picked_astrocytes.yaml --id ${SCRATCH/"/scratch/"/} -resume
