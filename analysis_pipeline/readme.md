@@ -21,7 +21,7 @@ This pipeline starts from the initial seurat object created using the [count_to_
 
 5. Ligand-receptor interactions were analysed using the scripts in [cell_cell_signalling](cell_cell_signalling)  In all cases, read the instructions at the \*_main.sh, \*_sbatch.sh, or the associated readme.md files.
     - Expected time for the demo data: 10 minutes
-    - Expected output: Multiple output directories are created based on the parameters in the yaml file. These can include NICHES, scanpy_objects, diff_liana, etc. The diff_liana/\*_scn_scores/Dysregulated_LRs_unfiltered.tsv contains the Ligand-receptor scores that were used to create the figure in the manuscript. To customise which LR-pairs are plotted, refer to the [readme file within the cell_cell_signalling](analysis_pipeline/cell_cell_signalling/README.md)
+    - Expected output: Multiple output directories are created based on the parameters in the yaml file. These can include NICHES, scanpy_objects, diff_liana, etc. The diff_liana/\*_scn_scores/Dysregulated_LRs_unfiltered.tsv contains the Ligand-receptor scores that were used to create the figure in the manuscript. To customise which LR-pairs are plotted, refer to the [readme file within the cell_cell_signalling](cell_cell_signalling/README.md)
 
 ## Requirements
 
