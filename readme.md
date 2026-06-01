@@ -1,6 +1,6 @@
 # Readme
 
-These scripts were used to pre-process the raw seqencing data, and analyse the resultant count matrix, as well as to prepare figures in the manuscript: [Astrocytes in the mouse suprachiasmatic nuclei respond directly to glucocorticoids feedback](bioRxiv link)
+These scripts were used to pre-process the raw seqencing data, and analyse the resultant count matrix, as well as to prepare figures in the manuscript: [A developmental shift in glucocorticoid receptor expression preserves glucocorticoid sensitivity in the adult suprachiasmatic nucleus.](bioRxiv link)
 
 ## Main steps
 
